@@ -23,5 +23,7 @@
 storybook-static
 custom-elements.json
 
-# local env files
+# npm token file
 .npmrc
+# 忽略 package-lock.json
+package-lock.json
