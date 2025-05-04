@@ -1,0 +1,33 @@
+//一定要在最顶层导入tag.define.js，触发loadtime注册
+import { defaultTagName } from  "../../default/tag.define.js"
+import {AxueElement} from "../../frame/loadtime.js" //导入注册器
+import { html, css, LitElement, render, nothing} from 'lit';
+//如果组件内部结构里用到，就导入
+import { shareStyles } from "../../default/share.css.js"          //统一维护共享样式 
+export class Right extends LitElement { 
+    static properties = {
+        border:{type: Boolean} 
+    } 
+    static styles = [
+        ...shareStyles,          //注入样式布局
+    ]
+    
+    constructor() {
+        super();
+    }
+    
+    render() {
+        return html`
+            <div class="main flex-right ${this.border===true? 'border':''}" >
+                <slot></slot>
+            </div>
+        `;
+    }
+
+} 
+/**
+tag.define.js
+* 负责导入loadtime,完成对封装的customElement.define方法的注册
+* 负责统一维护枚举&向组件开放默认的标签名
+*/
+AxueElement.preDefine( defaultTagName.Right, Right);

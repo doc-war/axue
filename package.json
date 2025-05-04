@@ -1,0 +1,61 @@
+{
+  "name": "axue",
+  "description": "面向pc端、跨框架的浏览器原生组件库，开箱即用。支持在业务开发层自定义标签、图标、样式，开创loadtime范式先河。",
+  "license": "ISC",
+  "author": {
+    "name": "qingqiao",
+    "email": "zhaoliwei@yyyyer.com"
+  },
+  "version": "0.4.111",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doc-war/axue.git"
+  },
+  "keywords": [
+    "wc组件",
+    "web Components",
+    "原生组件库",
+    "pc组件库",
+    "axue",
+    "axueComponent",
+    "傲雪",
+    "傲雪框架",
+    "傲雪组件库",
+    "shadow dom",
+    "custom element",
+    "loadtime",
+    "通知弹框",
+    "notifier",
+    "toast"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "bin": {
+    "axue": "./bin/index.cjs"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/axue.mjs"
+    }
+  },
+  "module": "./dist/axue.mjs",
+  "browser": "./dist/axue.umd.js",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "release": "npm run build && npm publish",
+    "start": "cd .. && npm start"
+  },
+  "dependencies": {
+    "lit": "^3.0.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^5.0.1",
+    "rollup-plugin-dts": "^6.1.0",
+    "vite": "^6.3.4"
+  },
+  "marker":"①module指向编译后，面向开发者,实际入口由lib.entry指定②bin指向create-axue的目录，无需这里包含③不要支持main、require等cjs，以免在SSR场景下扰乱指向优先级"
+}
