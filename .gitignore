@@ -25,5 +25,5 @@ custom-elements.json
 
 # npm token file
 .npmrc
-# 忽略 package-lock.json
+# package-lock.json不需要强一致
 package-lock.json
